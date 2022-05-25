@@ -1,0 +1,58 @@
+/user-management:
+----------------
+	1. /api/v1/user-management/register - [POST]
+		Request:
+		--------
+		{
+			"userName": "narsimha.jammula", 
+			"password": "abc@123",
+			"confirmPassword": "abc@123"
+		}
+		Response:
+		---------
+		HTTP - 201 
+
+	2. /api/v1/user-management/signin - [POST]
+
+		Request:
+		--------
+		{
+			"userName": "narsimha.jammula", 
+			"password": "abc@123"
+		}
+
+		Response:
+		---------
+		{
+			"userId":1,
+			"email": "narsimha.jammula@maillogic.io"
+		}
+
+		Future:
+		-------
+
+		/api/v1/user-management/confirm-account [POST]
+		/api/v1/user-management/reset-password - [POST] --> this needs to be behind IDP
+
+			Request:
+			--------
+			{
+				"userName": "narsimha.jammula", 
+				"oldPassword": "abc@123",
+				"newPassword": "xyz@123",
+				"confirmPassword": "xyz@123",
+			}
+
+/users:
+-------
+
+/api/v1/users:
+	[GET] --> get all active users
+	[POST] --> create new team members
+
+/api/v1/users/{userId}:
+	[GET] --> get a specific user
+	[PATCH] --> update user-information
+	[DELETE] --> delete user
+
+ 

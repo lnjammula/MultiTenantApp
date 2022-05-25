@@ -1,0 +1,56 @@
+## Useful links:
+
+https://livebook.manning.com/book/go-web-programming/table-of-contents/
+https://dbdiagram.io/ --> Generate SQL scripts & ERD
+
+## Udemy:
+
+https://www.udemy.com/course/backend-master-class-golang-postgresql-kubernetes
+
+## docker commands:
+
+cheat sheet: https://collabnix.com/docker-cheatsheet/
+docker images are available in: https://hub.docker.com/
+
+container is an instance of an image
+
+docker ps (show all running containers)
+docker ps -a (show all containers)
+docker stop <name-of-container>
+
+---
+
+## --Postgres Docker Image
+
+docker pull postgres:14.3-alpine
+docker run --name postgres14 -p 5433:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret -d postgres:14.3-alpine
+
+database migration in Golang: https://github.com/golang-migrate/migrate/tree/master/cmd/migrate
+_ brew install golang-migrate
+_ migrate create -ext sql -dir ./migrations -seq init_schema (note: ext is extension) \* migrate -path Db/migrations -database "postgres://root:secret@localhost:5433/MultiTenantApp?sslmode=disable" -verbose up
+
+---
+
+## --makefile (macOs)
+
+Can be used to automate docker container run steps
+
+## ORM??:
+----------
+
+DATABASE/SQL: Plain SQL, Manual Mapping
+GORM: Slow
+SQLX: middle ground, lengthy code
+SQLC: fast & easy (recommended), support for postgres - https://docs.sqlc.dev/en/latest/tutorials/getting-started-postgresql.html
+
+
+Tests:
+------
+
+postgres driver: https://github.com/lib/pq
+assertion,mocking library: https://github.com/stretchr/testify
+
+DB Management Tool:
+-------------------
+https://tableplus.com/ --> easy to use DB Management Tool (seriously no crap)
+

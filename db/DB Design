@@ -1,0 +1,77 @@
+User DB:
+--------
+
+User:
+* Id
+* FirstName (NULL)
+* LastName (NULL)
+* FullName (NULL)
+* PrimaryOrgId (can be useful in multi-tenant scenarios) (NULL)
+* IsEmailConfirmed (NOT NULL) Default = 0 
+* Email (NOT NULL)
+* UserName (NOT NULL)
+* RoleId (NOT NULL) Default = 1
+* CreatedBy
+* UpdatedBy
+* CreatedDateTime
+* UpdatedDateTime
+* IsArchived (NOT NULL) Default = 0
+
+LoginDetail:
+* Id
+* UserId (NOT NULL)
+* PasswordHash (NOT NULL)
+* IsLockedOut (NOT NULL) Default = 0
+* FailedLoginCount (NOT NULL) Default = 0
+* CreatedBy
+* UpdatedBy
+* CreatedDateTime
+* UpdatedDateTime
+
+Event:
+* Id
+* UserId
+* IPAddress
+* UserAgent
+* EventName (Enum: Email Confirmed, Login Success, Login Failed, Logout, PasswordChange, LockedOut)
+* CreatedBy
+* UpdatedBy
+* CreatedDateTime
+* UpdatedDateTime
+
+Role:
+* Id
+* Name (Global Admin, Admin, Staff)
+* Code (GlobalAdmin, Admin, Staff)
+* CreatedBy
+* UpdatedBy
+* CreatedDateTime
+* UpdatedDateTime
+* IsArchived (NOT NULL) Default = 0
+
+Permission:
+* Id
+* Name (User-Read, User-Write, UserManagement-Read, UserManagement-Write...)
+* Code (GlobalAdmin, Admin, Staff)
+* CreatedBy
+* UpdatedBy
+* CreatedDateTime
+* UpdatedDateTime
+* IsArchived (NOT NULL) Default = 0
+
+RolePermission:
+* RoleId
+* PermissionId
+* CreatedBy
+* UpdatedBy
+* CreatedDateTime
+* UpdatedDateTime
+
+UserProduct:
+* UserId
+* ProductId
+* CreatedBy
+* UpdatedBy
+* CreatedDateTime
+* UpdatedDateTime
+

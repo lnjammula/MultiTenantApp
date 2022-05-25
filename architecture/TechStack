@@ -1,0 +1,33 @@
+Build in Docker Containers with Linux
+
+Logging/APM using Grafana/Prometheus - later
+
+IDP -> KeyCloak (Java) - later
+
+Services -> Go 
+
+DB -> Postgres
+
+Messaging, Log Aggregation -> kafka
+
+UI -> 
+	* Vue.js (Components, Routing, Store)
+		* Axios
+		* OIDC client
+	* Javascript Async processing (Async/Await with promises)
+	* Bootstrap-5 (simple design)
+
+CI/CD:
+------
+github
+Cloud Build
+
+Deployment:
+-----------
+Google Cloud Run
+Cloud SQL for PostgreSQL
+
+laxminarsimha.jammula@gmail.com
+
+
+

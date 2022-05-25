@@ -1,0 +1,11 @@
+Use Cases:
+----------
+
+1. Ability to register a new user
+	* create a new User & LoginDetail entry
+	* should create a "User Registered event" (the event will be just saved to DB)
+2. Ability to signin a new user
+	* authenticate the User by validating UserName & Password
+	* should create a "User Logged-in" event (the event will be just saved to DB)
+3. Create a simple ML model to predict if the email is Spam (during registration)
+	* ML model using Python
