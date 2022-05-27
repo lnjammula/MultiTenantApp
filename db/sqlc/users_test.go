@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	"multitenant.com/app/db/util"
+	"multitenant.com/app/util"
 )
 
 func TestCreateUser(t *testing.T) {
