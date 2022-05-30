@@ -10,8 +10,8 @@ import (
 )
 
 type createUserRequest struct {
-	Email    string `json:"email" binding:"required"`
-	UserName string `json:"userName" binding:"required"`
+	Email    string `json:"email" binding:"required,email"`
+	UserName string `json:"userName" binding:"required,alphanum"`
 }
 
 func (server *Server) createUser(ctx *gin.Context) {

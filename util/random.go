@@ -29,3 +29,9 @@ func RandomString(n int) string {
 
 	return sb.String()
 }
+
+func RandomEmail(userName string) string {
+	randomDomain := RandomString(4)
+	randomEmail := userName + "@" + randomDomain + ".com"
+	return randomEmail
+}

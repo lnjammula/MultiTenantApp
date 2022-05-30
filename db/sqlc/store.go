@@ -6,23 +6,27 @@ import (
 	"fmt"
 )
 
-//Store provides all functions to execute db queries and transactions
+type Store interface {
+	Querier
+}
+
+//SQLStore provides all functions to execute db queries and transactions
 //Extends the functionality of Queries (individual queries) to run in transaction
-type Store struct {
+type SQLStore struct {
 	*Queries
 	db *sql.DB //required to create a new transaction
 }
 
 //NewStore creates a new Store
-func NewStore(db *sql.DB) *Store {
-	return &Store{
+func NewStore(db *sql.DB) Store {
+	return &SQLStore{
 		db:      db,
 		Queries: New(db),
 	}
 }
 
 //execTx executes a function within a database transaction
-func (store *Store) execTx(ctx context.Context, fn func(*Queries) error) error {
+func (store *SQLStore) execTx(ctx context.Context, fn func(*Queries) error) error {
 	//create a transaction
 	tx, err := store.db.BeginTx(ctx, nil)
 	if err != nil {
@@ -44,7 +48,7 @@ func (store *Store) execTx(ctx context.Context, fn func(*Queries) error) error {
 	return tx.Commit()
 }
 
-func (store *Store) CreateUserWithTx(ctx context.Context, arg CreateUserParams) (User, error) {
+func (store *SQLStore) CreateUserWithTx(ctx context.Context, arg CreateUserParams) (User, error) {
 	var result User
 
 	err := store.execTx(ctx, func(q *Queries) error {
