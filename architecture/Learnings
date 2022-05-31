@@ -90,4 +90,12 @@ docker network connect multitenant-network postgres14
 docker run --name multitenant --network multitenant-network -p 8080:8080 -e GIN_MODE=release -e DB_SOURCE="postgres://root:secret@postgres14:5432/MultiTenantApp?sslmode=disable" multitenant:latest 
 
 
+docker-compose:
+---------------
+docker-compose file can be used to control service start-up orders
+
+docker compose up (create containers using docker-compose.yml)
+
+docker compose down (removes containers using docker-compose.yml)
+
 
