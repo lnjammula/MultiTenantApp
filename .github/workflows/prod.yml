@@ -23,11 +23,11 @@ jobs:
         with:
           credentials_json: "${{ secrets.GCP_SA_KEY }}"
 
-      - id: 'deploy'
-            uses: 'google-github-actions/deploy-cloudrun@v0'
-            with:
-              service: 'hello-cloud-run'
-              image: 'gcr.io/cloudrun/hello'
+      - id: "deploy"
+        uses: "google-github-actions/deploy-cloudrun@v0"
+        with:
+          service: "hello-cloud-run"
+          image: "gcr.io/cloudrun/hello"
 
-      - name: 'Use output'
+      - name: "Use output"
         run: 'curl "${{ steps.deploy.outputs.url }}"'
