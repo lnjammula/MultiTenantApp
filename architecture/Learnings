@@ -1,7 +1,7 @@
 ## Useful links:
 
 https://livebook.manning.com/book/go-web-programming/table-of-contents/
-https://dbdiagram.io/ --> Generate SQL scripts & ERD
+https://dbdiagram.io/ --> Generate SQL scripts & ERD. Also helpful to get & expose documentation for the ERD as a static site (Data Dictionary)
 
 ## Udemy/Youtube:
 -----------------
@@ -102,3 +102,23 @@ docker compose down (removes containers using docker-compose.yml)
 Google cloud Run:
 ----------------
 https://github.com/saiyam1814/cloudrundemos
+
+Hexagonal Architecture:
+-----------------------
+https://github.com/ashishjuyal/banking
+
+
+Monitoring Services using:
+--------------------------
+
+Prometheus (time series NoSQL DB to store & query metrics): 
+----------
+* Server will pull instrumentation data from clint: https://prometheus.io/docs/prometheus/latest/getting_started/
+* Client will expose metrics via prometheus client library:  https://github.com/prometheus/client_golang/blob/main/examples/gocollector/main.go
+
+Grafanna: Visualization of prometheus metrics
+--------
+https://grafana.com/docs/grafana/latest/getting-started/getting-started/
+https://grafana.com/docs/grafana/latest/datasources/prometheus/
+
+

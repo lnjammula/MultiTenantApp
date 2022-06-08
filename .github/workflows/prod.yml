@@ -11,7 +11,7 @@ env:
 
 jobs:
   deploy:
-    name: Build image
+    name: Build and deploy image
     runs-on: ubuntu-latest
 
     # Service containers to run with `container-job`
