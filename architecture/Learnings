@@ -122,4 +122,10 @@ Grafanna: Visualization of prometheus metrics
 https://grafana.com/docs/grafana/latest/getting-started/getting-started/
 https://grafana.com/docs/grafana/latest/datasources/prometheus/
 
+Kafka:
+------
+overview: https://www.confluent.io/lp/apache-kafka
+https://developer.confluent.io/get-started/go/
+
+
 

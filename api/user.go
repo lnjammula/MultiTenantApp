@@ -7,6 +7,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	db "multitenant.com/app/db/sqlc"
+	pubsub "multitenant.com/app/pubsub"
 )
 
 type createUserRequest struct {
@@ -31,6 +32,10 @@ func (server *Server) createUser(ctx *gin.Context) {
 		ctx.JSON(http.StatusInternalServerError, errorResponse(err))
 		return
 	}
+
+	//TODO: publish User Read Event to Topic
+	pubsub.PublishToTopic()
+
 	ctx.JSON(http.StatusCreated, gin.H{"id": user.ID})
 }
 
@@ -72,6 +77,7 @@ func (server *Server) getUser(ctx *gin.Context) {
 		ctx.JSON(http.StatusInternalServerError, errorResponse(err))
 		return
 	}
+
 	//TODO: check if there is automapper
 	var response userResponseDto
 	response.ID = user.ID

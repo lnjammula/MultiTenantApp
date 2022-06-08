@@ -7,10 +7,15 @@ import (
 	_ "github.com/lib/pq"
 	"multitenant.com/app/api"
 	db "multitenant.com/app/db/sqlc"
+	"multitenant.com/app/pubsub"
 	"multitenant.com/app/util"
 )
 
 func main() {
+
+	//TODO: Subscribe User Read Event from Topic
+	go pubsub.ConsumeFromTopic()
+
 	config, err := util.LoadConfig(".")
 	if err != nil {
 		log.Fatal("cannot load config:", err)
@@ -26,4 +31,5 @@ func main() {
 	if err != nil {
 		log.Fatal("cannot start server:", err)
 	}
+
 }
