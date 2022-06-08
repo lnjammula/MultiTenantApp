@@ -102,6 +102,7 @@ docker compose down (removes containers using docker-compose.yml)
 Google cloud Run:
 ----------------
 https://github.com/saiyam1814/cloudrundemos
+https://cloud.google.com/run/docs/authenticating/public
 
 Hexagonal Architecture:
 -----------------------
