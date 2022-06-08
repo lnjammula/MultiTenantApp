@@ -22,7 +22,8 @@ docker stop <name-of-container>
 
 ---
 
-## --Postgres Docker Image
+## --Postgres Docker Image (setup is -> GO app is talking to postgres running as docker container)
+--------------------------------------------------------------------------------------------------
 
 docker pull postgres:14.3-alpine
 docker run --name postgres14 -p 5433:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret -d postgres:14.3-alpine
@@ -72,8 +73,8 @@ Multistage Dockerfile:
 ---------------------
 resulting docker image size from above process is ~450 MB, inorder to reduce the size of docker image, we can use multi-stage Dockerfile (which is nothing but just copying the binary file from build stage, which reduces size of image to ~22 MB)
 
-Run docker images:
------------------- 
+(option-2) Run docker images (alternate to running App from IDE):
+-----------------------------------------------------------------
 docker run --name multitenant -p 8080:8080 -e GIN_MODE=release multitenant:latest (issue cannot connect to DB as both docker containers run on different n/w's)
 
 docker run --name multitenant -p 8080:8080 -e GIN_MODE=release -e DB_SOURCE="postgres://root:secret@172.17.0.2:5432/MultiTenantApp?sslmode=disable" multitenant:latest (as Viper user env variables as well)
@@ -90,8 +91,8 @@ docker network connect multitenant-network postgres14
 docker run --name multitenant --network multitenant-network -p 8080:8080 -e GIN_MODE=release -e DB_SOURCE="postgres://root:secret@postgres14:5432/MultiTenantApp?sslmode=disable" multitenant:latest 
 
 
-docker-compose:
----------------
+(option-3) docker-compose (even better to running multiple apps):
+-----------------------------------------------------------------
 docker-compose file can be used to control service start-up orders
 
 docker compose up (create containers using docker-compose.yml)
